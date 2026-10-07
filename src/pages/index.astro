@@ -8,137 +8,212 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pritom Mandol | Gameplay & AI Programmer</title>
-    <!-- Tailwind CSS CDN for instant styling in browser -->
+    
+    <!-- Google Fonts: Inter (Body) & JetBrains Mono (Code/Tech Tags) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
 
-    <main class="max-w-6xl mx-auto px-6 py-12">
+    <!-- Custom CSS Styles & Animations -->
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #080c14;
+        background-image: 
+          radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.08) 0px, transparent 50%),
+          radial-gradient(at 100% 100%, rgba(15, 23, 42, 0.8) 0px, transparent 50%),
+          linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+      }
+      .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      .glass-card {
+        background: rgba(15, 23, 42, 0.75);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .glass-card:hover {
+        border-color: rgba(6, 182, 212, 0.4);
+        box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.15);
+      }
+    </style>
+  </head>
+  <body class="text-slate-100 min-h-screen antialiased">
+
+    <main class="max-w-6xl mx-auto px-6 py-12 md:py-20">
       
-      <!-- Hero Section -->
-      <header class="mb-16 border-b border-slate-800 pb-10">
-        <div class="inline-block bg-cyan-950 text-cyan-400 text-xs font-mono px-3 py-1 rounded-full mb-4 border border-cyan-800">
-          Primary Engine: Unreal Engine 5.7
+      <!-- Top Navigation / Status Bar -->
+      <nav class="flex justify-between items-center mb-16 pb-6 border-b border-slate-800/80">
+        <div class="flex items-center gap-3">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+          </span>
+          <span class="text-xs font-mono text-slate-400 tracking-wider uppercase">Open to Roles: UE5 Gameplay / AI Programmer</span>
         </div>
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+        <div class="text-xs font-mono text-cyan-400 bg-cyan-950/80 border border-cyan-800/60 px-3 py-1.5 rounded-md">
+          UE 5.7 Stack
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <header class="mb-20">
+        <div class="inline-block bg-slate-900/90 text-cyan-400 text-xs font-mono px-3.5 py-1.5 rounded-md mb-6 border border-cyan-500/30">
+          Portfolio Case Study // 2026 Capstone
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 text-white">
           Pritom Mandol
         </h1>
-        <h2 class="text-xl md:text-2xl text-cyan-400 font-medium mb-6">
+        <h2 class="text-2xl md:text-3xl text-cyan-400 font-semibold mb-6">
           Gameplay & AI Programmer
         </h2>
-        <p class="text-slate-400 max-w-2xl text-lg leading-relaxed mb-8">
-          Specialising in autonomous decision-making systems, State Trees, Environment Query System (EQS) spatial queries, and decoupled Blueprint architecture in Unreal Engine 5.7.
+        <p class="text-slate-300 max-w-2xl text-lg leading-relaxed mb-8">
+          Specialising in autonomous decision-making architecture, UE5.7 State Trees, Environment Query System (EQS) spatial queries, and decoupled Blueprint frameworks.
         </p>
-        <div class="flex flex-wrap gap-4 font-medium">
-          <a href="#case-study" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-6 py-3 rounded-lg transition-colors">
-            View EcoLab Case Study
+        
+        <div class="flex flex-wrap gap-4 font-medium text-sm">
+          <a href="#case-study" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-6 py-3.5 rounded-lg transition-all font-semibold shadow-lg shadow-cyan-500/20">
+            Explore EcoLab Case Study ↓
           </a>
-          <a href="https://github.com" target="_blank" class="border border-slate-700 hover:border-slate-500 bg-slate-900 px-6 py-3 rounded-lg transition-colors">
-            GitHub Profile
+          <a href="https://github.com" target="_blank" class="glass-card hover:bg-slate-800/80 text-slate-200 px-6 py-3.5 rounded-lg transition-all flex items-center gap-2">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub Repository
           </a>
         </div>
       </header>
 
-      <!-- Case Study Section -->
-      <section id="case-study" class="mb-20">
+      <!-- Featured Case Study -->
+      <section id="case-study" class="mb-24">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 border-b border-slate-800 pb-4">
           <div>
             <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">Featured Technical Capstone</span>
-            <h3 class="text-3xl font-bold mt-1">EcoLab: Natural Selection Sandbox</h3>
+            <h3 class="text-3xl font-bold mt-1 text-white">EcoLab: Natural Selection Sandbox</h3>
           </div>
-          <div class="mt-4 md:mt-0 text-sm font-mono text-slate-400">
+          <div class="mt-4 md:mt-0 text-xs font-mono text-slate-400 bg-slate-900/80 px-3 py-1.5 rounded border border-slate-800">
             Role: Solo Programmer | Engine: UE5.7 (Blueprints, State Trees, EQS)
           </div>
         </div>
 
-        <!-- Main Video/Demo Container -->
-        <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden mb-12 aspect-video flex items-center justify-center text-slate-500 font-mono">
-          <p>[ 16:9 Gameplay Debug Video Embed: Perception Cones & Telemetry HUD ]</p>
+        <!-- 16:9 Video Demo Box -->
+        <div class="glass-card rounded-2xl overflow-hidden mb-12 aspect-video relative group flex flex-col items-center justify-center text-center p-8">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10 pointer-events-none"></div>
+          <div class="z-20 max-w-md">
+            <div class="w-16 h-16 bg-cyan-500/10 border border-cyan-500/30 rounded-full flex items-center justify-center mx-auto mb-4 text-cyan-400 group-hover:scale-110 transition-transform">
+              ▶
+            </div>
+            <p class="font-mono text-sm text-cyan-300 mb-1">[ 16:9 Gameplay Debug Reel ]</p>
+            <p class="text-xs text-slate-400">Showing State Tree Debug Nodes, EQS Vision Cones & UMG Telemetry Graph</p>
+          </div>
         </div>
 
         <!-- Process Artifacts Grid -->
-        <h4 class="text-xl font-bold mb-6 text-slate-200">System Architecture & Process Artifacts</h4>
+        <h4 class="text-xl font-bold mb-6 text-slate-200 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+          System Architecture & Process Artifacts
+        </h4>
+        
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           
           <!-- Card 1 -->
-          <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
-            <span class="text-xs font-mono text-cyan-400">01 / DATA SCHEMA</span>
-            <h5 class="text-lg font-bold text-slate-100 mt-1 mb-2">Genome Schema & Blueprint Architecture</h5>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-              Designed a modular <code class="text-cyan-300 bg-slate-950 px-1.5 py-0.5 rounded">FGenomeData</code> struct housing movement speed, mesh scale, metabolism decay, and vision radius. On BeginPlay, creatures parse DNA to scale meshes and movement attributes without direct class casting.
+          <div class="glass-card p-7 rounded-xl transition-all duration-300">
+            <div class="flex justify-between items-start mb-3">
+              <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/40">01 / DATA SCHEMA</span>
+            </div>
+            <h5 class="text-lg font-bold text-white mb-2">Genome Schema & Blueprint Architecture</h5>
+            <p class="text-slate-300 text-sm leading-relaxed mb-5">
+              Designed a modular <code class="text-cyan-300 bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded font-mono text-xs">FGenomeData</code> struct housing movement speed, mesh scale, metabolism decay, and vision radius. On <code class="text-slate-300 bg-slate-900 border border-slate-800 px-1 py-0.5 rounded font-mono text-xs">BeginPlay</code>, creatures parse DNA to scale meshes and movement attributes without direct class casting.
             </p>
-            <div class="text-xs font-mono text-slate-500">Key Tech: User Defined Structs, Decoupled Architecture</div>
+            <div class="text-xs font-mono text-slate-400 border-t border-slate-800/80 pt-3 flex items-center gap-2">
+              <span class="text-cyan-400">✦</span> Key Tech: Struct Data, Decoupled Architecture
+            </div>
           </div>
 
           <!-- Card 2 -->
-          <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
-            <span class="text-xs font-mono text-cyan-400">02 / AI DECISION ENGINE</span>
-            <h5 class="text-lg font-bold text-slate-100 mt-1 mb-2">State Trees & EQS Perception Engine</h5>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+          <div class="glass-card p-7 rounded-xl transition-all duration-300">
+            <div class="flex justify-between items-start mb-3">
+              <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/40">02 / AI DECISION ENGINE</span>
+            </div>
+            <h5 class="text-lg font-bold text-white mb-2">State Trees & EQS Perception Engine</h5>
+            <p class="text-slate-300 text-sm leading-relaxed mb-5">
               Constructed an autonomous decision-making engine using UE5.7 State Trees (Wandering, Seeking Food, Seeking Mate). Integrated Environment Query System (EQS) to perform real-time spatial scoring for resource nodes inside dynamic vision cones.
             </p>
-            <div class="text-xs font-mono text-slate-500">Key Tech: UE5 State Trees, EQS Spatial Scoring</div>
+            <div class="text-xs font-mono text-slate-400 border-t border-slate-800/80 pt-3 flex items-center gap-2">
+              <span class="text-cyan-400">✦</span> Key Tech: UE5 State Trees, EQS Spatial Scoring
+            </div>
           </div>
 
           <!-- Card 3 -->
-          <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
-            <span class="text-xs font-mono text-cyan-400">03 / GENETICS LIBRARY</span>
-            <h5 class="text-lg font-bold text-slate-100 mt-1 mb-2">Genetic Mutation & Inheritance Engine</h5>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-              Authored a Blueprint Function Library (<code class="text-cyan-300 bg-slate-950 px-1.5 py-0.5 rounded">BPL_GeneticEngine</code>) that blends parent genome structs and applies a configurable mutation rate (±5%) to pass evolved traits to child generations upon successful mating.
+          <div class="glass-card p-7 rounded-xl transition-all duration-300">
+            <div class="flex justify-between items-start mb-3">
+              <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/40">03 / GENETICS LIBRARY</span>
+            </div>
+            <h5 class="text-lg font-bold text-white mb-2">Genetic Mutation & Inheritance Engine</h5>
+            <p class="text-slate-300 text-sm leading-relaxed mb-5">
+              Authored a Blueprint Function Library (<code class="text-cyan-300 bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded font-mono text-xs">BPL_GeneticEngine</code>) that blends parent genome structs and applies a configurable mutation rate (±5%) to pass evolved traits to child generations upon successful mating.
             </p>
-            <div class="text-xs font-mono text-slate-500">Key Tech: Evolutionary Math, Blueprint Function Library</div>
+            <div class="text-xs font-mono text-slate-400 border-t border-slate-800/80 pt-3 flex items-center gap-2">
+              <span class="text-cyan-400">✦</span> Key Tech: Evolutionary Math, Blueprint Function Library
+            </div>
           </div>
 
           <!-- Card 4 -->
-          <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition-colors">
-            <span class="text-xs font-mono text-cyan-400">04 / ANALYTICS & UI</span>
-            <h5 class="text-lg font-bold text-slate-100 mt-1 mb-2">Real-Time Telemetry & Simulation HUD</h5>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+          <div class="glass-card p-7 rounded-xl transition-all duration-300">
+            <div class="flex justify-between items-start mb-3">
+              <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/40">04 / ANALYTICS & UI</span>
+            </div>
+            <h5 class="text-lg font-bold text-white mb-2">Real-Time Telemetry & Simulation HUD</h5>
+            <p class="text-slate-300 text-sm leading-relaxed mb-5">
               Developed an in-game telemetry dashboard recording live population counts, active generation numbers, and real-time trend graphs tracking average speed, size, and vision radius shifts under environmental starvation pressure.
             </p>
-            <div class="text-xs font-mono text-slate-500">Key Tech: UMG Dashboard, Simulation Profiling</div>
+            <div class="text-xs font-mono text-slate-400 border-t border-slate-800/80 pt-3 flex items-center gap-2">
+              <span class="text-cyan-400">✦</span> Key Tech: UMG Dashboard, Simulation Profiling
+            </div>
           </div>
 
         </div>
       </section>
 
       <!-- Technical Skills Matrix -->
-      <section class="mb-20 border-t border-slate-800 pt-12">
-        <h3 class="text-2xl font-bold mb-8">Core Technical Competencies</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h4 class="text-cyan-400 font-mono text-sm mb-3">AI & Systems</h4>
-            <ul class="space-y-2 text-slate-300 text-sm">
-              <li>• UE5 State Trees Framework</li>
-              <li>• Environment Query System (EQS)</li>
-              <li>• Genetic Mutation Algorithms</li>
-              <li>• Gameplay Tags & Interfaces</li>
+      <section class="mb-20 border-t border-slate-800/80 pt-12">
+        <h3 class="text-2xl font-bold mb-8 text-white">Core Technical Competencies</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="glass-card p-6 rounded-xl">
+            <h4 class="text-cyan-400 font-mono text-xs uppercase tracking-wider mb-4">AI & Systems</h4>
+            <ul class="space-y-2.5 text-slate-300 text-sm font-medium">
+              <li class="flex items-center gap-2"><span class="text-cyan-500">›</span> UE5 State Trees Framework</li>
+              <li class="flex items-center gap-2"><span class="text-cyan-500">›</span> Environment Query System (EQS)</li>
+              <li class="flex items-center gap-2"><span class="text-cyan-500">›</span> Genetic Mutation Algorithms</li>
+              <li class="flex items-center gap-2"><span class="text-cyan-500">›</span> Gameplay Tags & Interfaces</li>
             </ul>
           </div>
-          <div>
-            <h4 class="text-cyan-400 font-mono text-sm mb-3">Engine & Scripting</h4>
-            <ul class="space-y-2 text-slate-300 text-sm">
-              <li>• Unreal Engine 5.7</li>
-              <li>• Blueprint Visual Scripting</li>
-              <li>• C++ Fundamentals</li>
-              <li>• UMG Telemetry UI</li>
+          <div class="glass-card p-6 rounded-xl">
+            <h4 class="text-cyan-400 font-mono text-xs uppercase tracking-wider mb-4">Engine & Scripting</h4>
+            <ul class="space-y-2.5 text-slate-300 text-sm font-medium">
+              <li class="flex items-center gap-2"><span class="text-cyan-500">›</span> Unreal Engine 5.7</li>
+              <li class="flex items-center gap-2"><span class="text-cyan-500">›</span> Blueprint Visual Scripting</li>
+              <li class="flex items-center gap-2"><span class="text-cyan-500">›</span> C++ Fundamentals</li>
+              <li class="flex items-center gap-2"><span class="text-cyan-500">›</span> UMG Telemetry UI</li>
             </ul>
           </div>
-          <div>
-            <h4 class="text-cyan-400 font-mono text-sm mb-3">Development Practices</h4>
-            <ul class="space-y-2 text-slate-300 text-sm">
-              <li>• Technical Design Documentation (TDD)</li>
-              <li>• Performance Profiling (`stat unit`)</li>
-              <li>• Git Version Control</li>
-              <li>• Process Artifact Curation</li>
+          <div class="glass-card p-6 rounded-xl">
+            <h4 class="text-cyan-400 font-mono text-xs uppercase tracking-wider mb-4">Development Practices</h4>
+            <ul class="space-y-2.5 text-slate-300 text-sm font-medium">
+              <li class="flex items-center gap-2"><span class="text-cyan-500">›</span> Technical Design Documentation (TDD)</li>
+              <li class="flex items-center gap-2"><span class="text-cyan-500">›</span> Performance Profiling (<code class="text-xs font-mono text-cyan-300">stat unit</code>)</li>
+              <li class="flex items-center gap-2"><span class="text-cyan-500">›</span> Git Version Control</li>
+              <li class="flex items-center gap-2"><span class="text-cyan-500">›</span> Process Artifact Curation</li>
             </ul>
           </div>
         </div>
       </section>
 
       <!-- Footer / Contact -->
-      <footer class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+      <footer class="border-t border-slate-800/80 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-400 font-mono">
         <div>© 2026 Pritom Mandol. Built with Astro & Tailwind CSS.</div>
         <div class="flex gap-6 mt-4 md:mt-0">
           <a href="mailto:your-email@example.com" class="hover:text-cyan-400 transition-colors">Email</a>
