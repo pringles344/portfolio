@@ -116,62 +116,66 @@
           <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
           System Architecture & Process Artifacts
         </h4>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           
-          <!-- Card 1 -->
-          <div class="glass-card p-7 rounded-xl transition-all duration-300">
+          <!-- Card 1: DNA Read & Initialization -->
+          <div class="glass-card p-6 rounded-xl transition-all duration-300">
             <div class="flex justify-between items-start mb-3">
-              <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/40">01 / DATA SCHEMA</span>
+              <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/40">01 / INITIALIZATION</span>
             </div>
-            <h5 class="text-lg font-bold text-white mb-2">Genome Schema & Blueprint Architecture</h5>
-            <p class="text-slate-300 text-sm leading-relaxed mb-5">
-              Designed a modular <code class="text-cyan-300 bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded font-mono text-xs">FGenomeData</code> struct housing movement speed, mesh scale, metabolism decay, and vision radius. On <code class="text-slate-300 bg-slate-900 border border-slate-800 px-1 py-0.5 rounded font-mono text-xs">BeginPlay</code>, creatures parse DNA to scale meshes and movement attributes without direct class casting.
+            <h5 class="text-lg font-bold text-white mb-2">DNA Read & Physical Initialization</h5>
+            
+            <!-- Screenshot 1.1 -->
+            <div class="my-4 rounded-lg overflow-hidden border border-slate-800 bg-slate-950/80 hover:border-cyan-500/50 transition-colors">
+              <img src="/1.1.png" alt="DNA Read and Physical Initialization Blueprint Graph" class="w-full h-auto object-cover" />
+            </div>
+
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+              Parses the <code class="text-cyan-300 bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded font-mono text-xs">FGenomeData</code> struct on <code class="text-slate-300 bg-slate-900 border border-slate-800 px-1 py-0.5 rounded font-mono text-xs">BeginPlay</code> to unpack <code class="text-slate-300 bg-slate-900 border border-slate-800 px-1 py-0.5 rounded font-mono text-xs">CreatureScale</code> and <code class="text-slate-300 bg-slate-900 border border-slate-800 px-1 py-0.5 rounded font-mono text-xs">MovementSpeed</code>, dynamically setting actor 3D scale and movement component attributes before starting a 0.1s metabolism timer loop.
             </p>
             <div class="text-xs font-mono text-slate-400 border-t border-slate-800/80 pt-3 flex items-center gap-2">
-              <span class="text-cyan-400">✦</span> Key Tech: Struct Data, Decoupled Architecture
+              <span class="text-cyan-400">✦</span> Key Tech: Decoupled Data Structs, Component Initialization
             </div>
           </div>
 
-          <!-- Card 2 -->
-          <div class="glass-card p-7 rounded-xl transition-all duration-300">
+          <!-- Card 2: Metabolism Decay & Starvation Check -->
+          <div class="glass-card p-6 rounded-xl transition-all duration-300">
             <div class="flex justify-between items-start mb-3">
-              <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/40">02 / AI DECISION ENGINE</span>
+              <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/40">02 / LIFECYCLE LOGIC</span>
             </div>
-            <h5 class="text-lg font-bold text-white mb-2">State Trees & EQS Perception Engine</h5>
-            <p class="text-slate-300 text-sm leading-relaxed mb-5">
-              Constructed an autonomous decision-making engine using UE5.7 State Trees (Wandering, Seeking Food, Seeking Mate). Integrated Environment Query System (EQS) to perform real-time spatial scoring for resource nodes inside dynamic vision cones.
+            <h5 class="text-lg font-bold text-white mb-2">Metabolism Decay & Starvation Death Check</h5>
+            
+            <!-- Screenshot 1.2 -->
+            <div class="my-4 rounded-lg overflow-hidden border border-slate-800 bg-slate-950/80 hover:border-cyan-500/50 transition-colors">
+              <img src="/1.2.png" alt="Metabolism Decay and Starvation Check Blueprint Graph" class="w-full h-auto object-cover" />
+            </div>
+
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+              Driven by a 0.1s timer event, this logic continuously calculates metabolic energy consumption using collapsed math nodes. If <code class="text-cyan-300 bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded font-mono text-xs">CurrentEnergy</code> drops below or equal to <code class="text-slate-300 bg-slate-900 border border-slate-800 px-1 py-0.5 rounded font-mono text-xs">0.0</code>, it logs a starvation event and calls <code class="text-slate-300 bg-slate-900 border border-slate-800 px-1 py-0.5 rounded font-mono text-xs">DestroyActor</code>.
             </p>
             <div class="text-xs font-mono text-slate-400 border-t border-slate-800/80 pt-3 flex items-center gap-2">
-              <span class="text-cyan-400">✦</span> Key Tech: UE5 State Trees, EQS Spatial Scoring
+              <span class="text-cyan-400">✦</span> Key Tech: Collapsed Math Graphs, Event Timers
             </div>
           </div>
 
-          <!-- Card 3 -->
-          <div class="glass-card p-7 rounded-xl transition-all duration-300">
+          <!-- Card 3: Perception Cone & Telemetry Overlays -->
+          <div class="glass-card p-6 rounded-xl transition-all duration-300 md:col-span-2">
             <div class="flex justify-between items-start mb-3">
-              <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/40">03 / GENETICS LIBRARY</span>
+              <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/40">03 / TELEMETRY & DEBUG</span>
             </div>
-            <h5 class="text-lg font-bold text-white mb-2">Genetic Mutation & Inheritance Engine</h5>
-            <p class="text-slate-300 text-sm leading-relaxed mb-5">
-              Authored a Blueprint Function Library (<code class="text-cyan-300 bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded font-mono text-xs">BPL_GeneticEngine</code>) that blends parent genome structs and applies a configurable mutation rate (±5%) to pass evolved traits to child generations upon successful mating.
-            </p>
-            <div class="text-xs font-mono text-slate-400 border-t border-slate-800/80 pt-3 flex items-center gap-2">
-              <span class="text-cyan-400">✦</span> Key Tech: Evolutionary Math, Blueprint Function Library
+            <h5 class="text-lg font-bold text-white mb-2">Real-Time Perception Cones & 3D Telemetry</h5>
+            
+            <!-- Screenshot 1.3 -->
+            <div class="my-4 rounded-lg overflow-hidden border border-slate-800 bg-slate-950/80 hover:border-cyan-500/50 transition-colors">
+              <img src="/1.3.png" alt="Real-Time Perception Cone and Telemetry Blueprint Graph" class="w-full h-auto object-cover max-h-96 object-top" />
             </div>
-          </div>
 
-          <!-- Card 4 -->
-          <div class="glass-card p-7 rounded-xl transition-all duration-300">
-            <div class="flex justify-between items-start mb-3">
-              <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/40">04 / ANALYTICS & UI</span>
-            </div>
-            <h5 class="text-lg font-bold text-white mb-2">Real-Time Telemetry & Simulation HUD</h5>
-            <p class="text-slate-300 text-sm leading-relaxed mb-5">
-              Developed an in-game telemetry dashboard recording live population counts, active generation numbers, and real-time trend graphs tracking average speed, size, and vision radius shifts under environmental starvation pressure.
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+              Renders real-time visual feedback in the viewport during simulation. Uses <code class="text-cyan-300 bg-slate-900 border border-slate-800 px-1.5 py-0.5 rounded font-mono text-xs">Draw Debug Cone</code> driven by genetic vision parameters (<code class="text-slate-300 bg-slate-900 border border-slate-800 px-1 py-0.5 rounded font-mono text-xs">VisionRadius</code> & <code class="text-slate-300 bg-slate-900 border border-slate-800 px-1 py-0.5 rounded font-mono text-xs">VisionAngle</code>) alongside a <code class="text-slate-300 bg-slate-900 border border-slate-800 px-1 py-0.5 rounded font-mono text-xs">Draw Debug String</code> offset above the head displaying real-time energy counts.
             </p>
             <div class="text-xs font-mono text-slate-400 border-t border-slate-800/80 pt-3 flex items-center gap-2">
-              <span class="text-cyan-400">✦</span> Key Tech: UMG Dashboard, Simulation Profiling
+              <span class="text-cyan-400">✦</span> Key Tech: Runtime Profiling, Debug Visualizers
             </div>
           </div>
 
