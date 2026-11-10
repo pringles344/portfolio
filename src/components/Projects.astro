@@ -1,37 +1,11 @@
+---
+import AnimatedProjectCard from "./AnimatedProjectCard.tsx";
+---
+
 <div class="project-grid">
-      <div class="project-card featured">
-        <div class="project-badge">Current Project</div>
-        <div class="project-image">
-          <div class="placeholder-grid">
-            <div class="tile wall"></div>
-            <div class="tile road"></div>
-            <div class="tile road"></div>
-            <div class="tile car"></div>
-            <div class="tile road"></div>
-            <div class="tile hydrant"></div>
-            <div class="tile wall"></div>
-            <div class="tile road"></div>
-            <div class="tile wall"></div>
-          </div>
-        </div>
-        <div class="project-content">
-          <h3 class="project-title">Valet Overdrive</h3>
-          <p class="project-description">
-            A turn-based, 2D tile-based valet parking puzzle game. Build your parking lot tile
-            by tile, park cars, manage hazards, and complete 10-turn shifts.
-          </p>
-          <div class="project-meta">
-            <span class="meta-tag">Godot 4.7.2</span>
-            <span class="meta-tag">GDScript</span>
-            <span class="meta-tag">TileMap2D</span>
-            <span class="meta-tag">A* Pathfinding</span>
-          </div>
-          <div class="project-links">
-            <a href="#" class="btn btn-outline">View on GitHub</a>
-            <a href="#devlog" class="btn btn-primary">Read Dev Log</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <AnimatedProjectCard
+    title="Valet Overdrive"
+    description="A turn-based, 2D tile-based valet parking puzzle game. Build your parking lot tile by tile, park cars, manage hazards, and complete 10-turn shifts."
+    tags={["Godot 4.7.2", "GDScript", "TileMap2D", "A* Pathfinding"]}
+  />
 </div>
