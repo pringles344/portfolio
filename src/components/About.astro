@@ -1,0 +1,68 @@
+<section id="about" class="section about">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">About <span class="accent">Me</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          I am a game developer building <strong>Valet Overdrive</strong> &mdash; a turn-based,
+          2D tile-based valet parking puzzle game where "Into the Breach meets Balatro."
+          Players manage a dynamic parking lot, park cars, navigate hazards, and race against
+          the clock in 10-turn shifts.
+        </p>
+        <p>
+          The game is built entirely in <strong>Godot 4.7.2</strong> using GDScript, featuring
+          procedural texturing via TileMap2D autotiling, A* pathfinding with dynamic grid
+          expansion, a signal-bus architecture, and a turn-based energy economy.
+        </p>
+        <div class="tech-stack">
+          <h3>Tech Stack</h3>
+          <div class="tech-items">
+            <span class="tech-item">Godot 4.7.2</span>
+            <span class="tech-item">GDScript</span>
+            <span class="tech-item">TileMap2D Autotiling</span>
+            <span class="tech-item">A* Pathfinding</span>
+            <span class="tech-item">Signal Bus Pattern</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="code-preview">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="dot red"></div>
+              <div class="dot yellow"></div>
+              <div class="dot green"></div>
+            </div>
+          </div>
+          <div class="code-body">
+            <div class="code-line"><span class="kw">extends</span> <span class="cls">Node</span></div>
+            <div class="code-line">
+              <span class="kw">signal</span> <span class="fn">energy_changed</span>(
+              <span class="type">current</span>: <span class="type">int</span>,
+              <span class="type">maximum</span>: <span class="type">int</span>
+              )
+            </div>
+            <div class="code-line">
+              <span class="kw">signal</span> <span class="fn">turn_ended</span>(
+              <span class="type">turn</span>: <span class="type">int</span>
+              )
+            </div>
+            <div class="code-line-empty"></div>
+            <div class="code-line">
+              <span class="kw">func</span> <span class="fn">spend_energy</span>(
+              <span class="type">amount</span>: <span class="type">int</span> = 1
+            ): <span class="type">bool</span>:
+            </div>
+            <div class="code-line-indent">    <span class="kw">if</span> <span class="type">current_energy</span> &gt;= <span class="type">amount</span>:</div>
+            <div class="code-line-indent-2">        <span class="type">current_energy</span> -= <span class="type">amount</span></div>
+            <div class="code-line-indent-2">        <span class="kw">return</span> <span class="kw">true</span></div>
+            <div class="code-line-indent">    <span class="kw">return</span> <span class="kw">false</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

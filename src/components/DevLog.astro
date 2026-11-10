@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+
+const devLogEntries = await getCollection("dev-log");
+
+// Sort: completed first, then in-progress, then pending
+const statusOrder = { completed: 0, "in-progress": 1, pending: 2 };
+const sortedEntries = devLogEntries.sort(
+  (a, b) =>
+    statusOrder[a.data.status] - statusOrder[b.data.status] ||
+    a.data.milestone.localeCompare(b.data.milestone)
+);
+
+const statusIcons = {
+  completed: "&#10003;",
+  "in-progress": "&#8635;",
+  pending: "&#9675;",
+};
+---
+
+<section id="devlog" class="section devlog">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Development <span class="accent">Log</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="devlog-intro">
+      <p>
+        Tracking the development of <strong>Valet Overdrive</strong> &mdash; 20 milestones
+        across 4 phases. Each milestone is documented here as it is completed.
+      </p>
+    </div>
+    <div class="devlog-timeline">
+      {sortedEntries.map((entry) => (
+        <div class={`timeline-item ${entry.data.status}`}>
+          <div class="timeline-marker" set:html={statusIcons[entry.data.status]} />
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="timeline-milestone">{entry.data.milestone}</span>
+              <span class="timeline-date">{entry.data.phase} &bull; Foundation</span>
+            </div>
+            <h3 class="timeline-title">{entry.data.title}</h3>
+            <p class="timeline-description">{entry.data.description}</p>
+            <ul class="timeline-tags">
+              {entry.data.tags.map((tag) => (
+                <li>{tag}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="devlog-footer">
+      <p>
+        <em>Dev log updated after each completed milestone. Check back for progress on
+        hazards, sweep scoring, shop system, and more.</em>
+      </p>
+    </div>
+  </div>
+</section>
