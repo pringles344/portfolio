@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="Contact" currentPage="contact">
+  <Nav currentPage="contact" />
+  <section class="section contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
+        <div class="section-divider"></div>
+      </div>
+      <Contact />
+    </div>
+  </section>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import About from "../components/About.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="About" currentPage="about">
+  <Nav currentPage="about" />
+  <section class="section about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">About <span class="accent">Me</span></h2>
+        <div class="section-divider"></div>
+      </div>
+      <About />
+    </div>
+  </section>
+  <Footer />
+</BaseLayout>

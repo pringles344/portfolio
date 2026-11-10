@@ -26,7 +26,8 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-dark); color: var(
 .nav-logo span { color: var(--accent); }
 .nav-links { display: flex; list-style: none; gap: 2rem; }
 .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: var(--transition); }
-.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+.nav-links li.active a { color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 0.25rem; }
 .nav-contact { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); transition: var(--transition); }
 .nav-contact:hover { border-color: var(--accent); color: var(--accent); }
 /* Hero */

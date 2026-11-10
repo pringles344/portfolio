@@ -3,18 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
-import Projects from "../components/Projects.astro";
-import DevLog from "../components/DevLog.astro";
-import Contact from "../components/Contact.astro";
-import Footer from "../components/Footer.astro";
 ---
 
-<BaseLayout title="Valet Overdrive">
-  <Nav />
+<BaseLayout title="Valet Overdrive" currentPage="index">
+  <Nav currentPage="index" />
   <Hero />
   <About />
-  <Projects />
-  <DevLog />
-  <Contact />
-  <Footer />
 </BaseLayout>
