@@ -12,6 +12,43 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Valet Overdrive dev log — project rules
 
+## Start Here
+
+> **Session catch-up.** Last updated 2026-11-11.
+
+**Live:** https://valet-overdrive-portfolio.vercel.app
+**Vercel project:** `pringles1/valet-overdrive-portfolio`, connected to
+`github.com/pringles344/portfolio`.
+
+**State:** built, deployed, and verified. Four routes (`/`, `/devlog`, `/roadmap`,
+`/design`) plus one static page per dev log entry. Six entries published. Pushing to
+`main` auto-deploys.
+
+**Verify before trusting any of the above:**
+
+```bash
+npm run build
+```
+
+Must pass. Takes about 15 seconds.
+
+**Where things live:**
+
+| Path | What |
+|---|---|
+| `content/devlog/*.md` | Dev log entries. One file per entry. |
+| `content/design/design-doc.md` | The design document. |
+| `src/lib/roadmap.ts` | Milestone data, mirrors the game repo. |
+| `/Volumes/PRITOMUSB/RiderData/skills/portfolio-content/` | The workflow for adding entries. |
+
+**Standing gotchas:**
+
+- `new Date()` is rejected during prerender. Hardcode values.
+- exFAT leaves `._*` files in `.next/cache/turbopack/`, which breaks the build cache.
+  `predev` and `prebuild` clean them automatically.
+- exFAT leaves `._*` files everywhere else too. `find . -name '._*' -delete` before
+  committing.
+
 ## What this repo is
 
 The portfolio site and living development record for **Valet Overdrive**, a turn-based
