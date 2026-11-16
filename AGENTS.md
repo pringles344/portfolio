@@ -30,7 +30,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 npm run build
 ```
 
-Must pass. Takes about 15 seconds.
+Must pass. Takes about a dozen seconds.
 
 **Where things live:**
 
@@ -44,10 +44,14 @@ Must pass. Takes about 15 seconds.
 **Standing gotchas:**
 
 - `new Date()` is rejected during prerender. Hardcode values.
-- exFAT leaves `._*` files in `.next/cache/turbopack/`, which breaks the build cache.
-  `predev` and `prebuild` clean them automatically.
-- exFAT leaves `._*` files everywhere else too. `find . -name '._*' -delete` before
-  committing.
+- The volume was exFAT until 2026-11-16 and is now APFS. The AppleDouble `._*` problems
+  described in the older dev log entries are historical — there is no cleanup step
+  anymore, and `predev`/`prebuild` have been removed.
+- ESLint is 10.x. `eslint-plugin-react`, `eslint-plugin-import`, and
+  `eslint-plugin-jsx-a11y` still declare a `<=9` peer range, so `npm ci` prints
+  `ERESOLVE overriding peer dependency` warnings. This is expected — the TS,
+  `react-hooks`, `jsx-a11y`, and `@next/next` rules all pass under 10. Do not downgrade
+  ESLint to silence the warnings.
 
 ## What this repo is
 
@@ -88,20 +92,21 @@ npm run build   # production build — must pass before committing
 npm run lint    # eslint
 ```
 
-Always go through npm. `predev` and `prebuild` strip the `._*` files that exFAT leaves
-in `.next/`; running `next build` directly will hit `invalid digit found in string`.
+Always go through npm, so the scripts in `package.json` stay the documented entry points.
 
 ## Environment note
 
-This repo sits on an exFAT volume. macOS writes `._*` resource-fork files, which are
-gitignored. Two consequences:
+The repo lives on an APFS volume (`/Volumes/PRITOMUSB`), reformatted from exFAT on
+2026-11-16. The `._*` AppleDouble files that used to corrupt `.git/objects/pack/` and
+`.next/cache/turbopack/` are no longer created, so the old
+`find . -name '._*' -delete` cleanup and the `predev`/`prebuild` hooks are gone.
 
-- Inside `.git/objects/pack/` they break pack reads with `non-monotonic index`.
-- Inside `.next/cache/turbopack/` they break the build cache, because Turbopack parses
-  cache filenames as numbers. One build creates ~400 of them.
+Measured on this volume with a warm npm cache:
 
-Clean up with:
+| Step | Time |
+|---|---|
+| `npm ci` (22,821 files, 472 MB) | ~10 s |
+| `npm run build` | ~12 s |
 
-```bash
-find . -name '._*' -delete
-```
+Node is not in this repo: it lives at `/Volumes/PRITOMUSB/RiderData/nodejs/bin`
+(Node 26, npm 12) and is not on PATH in non-interactive shells.

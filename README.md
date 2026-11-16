@@ -71,20 +71,16 @@ src/
     site.ts         # site config
 ```
 
-## Note on the exFAT volume
+## Storage note
 
-This repo lives on an exFAT volume, so macOS writes `._*` AppleDouble resource-fork
-files alongside every file. Two things break because of it.
+The repo lives on an APFS volume at `/Volumes/PRITOMUSB`. Until 2026-11-16 it was
+exFAT, which caused two failures that are written up in the dev log:
 
-**Git pack reads.** If `._*` files land inside `.git/objects/pack/`, every git command
-prints `non-monotonic index`. Clean with:
-
-```bash
-find . -name '._*' -delete
-```
+**Git pack reads.** `._*` AppleDouble files inside `.git/objects/pack/` made every git
+command print `non-monotonic index`.
 
 **Next's build cache.** Turbopack names its cache files numerically (`00000001.sst`),
-and `._00000001.sst` fails to parse as a number:
+and `._00000001.sst` failed to parse as a number:
 
 ```
 Failed to open database
@@ -92,14 +88,8 @@ Failed to open database
   invalid digit found in string
 ```
 
-One build produces ~400 of these in `.next/`. The `predev` and `prebuild` scripts in
-`package.json` delete them before every run, so `npm run dev` and `npm run build` work
-without manual intervention. If you ever run `next build` directly instead of through
-npm, clear the cache first:
+APFS does not create those files, so the `predev` and `prebuild` cleanup hooks were
+removed from `package.json` and the `._*` ignore rule was dropped from `.gitignore`.
 
-```bash
-find .next -name '._*' -delete
-```
-
-Measured on this volume: `npm install` 10 minutes (one-time, travels with the drive),
-`npm run build` 14 seconds.
+Measured on the current volume: `npm ci` ~10 s (22,821 files, 472 MB), `npm run build`
+~12 s. The same install took 10 minutes on exFAT.
