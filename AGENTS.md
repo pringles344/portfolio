@@ -14,7 +14,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Start Here
 
-> **Session catch-up.** Last updated 2026-11-11.
+> **Session catch-up.** Last updated 2026-11-17.
 
 **Live:** https://valet-overdrive-portfolio.vercel.app
 **Vercel project:** `pringles1/valet-overdrive-portfolio`, connected to
@@ -57,7 +57,7 @@ Must pass. Takes about a dozen seconds.
 
 The portfolio site and living development record for **Valet Overdrive**, a turn-based
 2D valet parking puzzle game built in Godot 4.7. The game lives in a **separate
-repository** (`Valet/Game/`). This repo only documents it.
+repository** at `/Volumes/PRITOMUSB/RiderProjects/valet`. This repo only documents it.
 
 ## Non-negotiables
 
